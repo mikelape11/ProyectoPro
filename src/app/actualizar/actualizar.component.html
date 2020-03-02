@@ -1,0 +1,23 @@
+<h3>Update Employee</h3>
+<div style="width: 400px;">
+
+    <div class="form-group">
+      <label for="name">Nombre</label>
+      <input type="text" class="form-control" id="nombre" required [(ngModel)]="User.nombre" name="nombre">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Apellido</label>
+      <input type="text" class="form-control" id="apellido" required [(ngModel)]="User.apellido" name="apellido">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Email</label>
+      <input type="text" class="form-control" id="email" required [(ngModel)]="User.email" name="email">
+    </div>
+
+
+</div>
+
+<button class="btn btn-success" routerLink="../../">Update</button> <!-- Llamo a la funcion -->
+

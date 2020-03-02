@@ -1,0 +1,33 @@
+<!-- Esta sera la vista para visualizar la lista de los usuarios -->
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h2>Lista de Empleados</h2>
+    </div>
+    <div class="panel-body">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Email</th>
+                    <th>Avatar</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let user of users"> <!-- coge el array users de "portada.component.ts" -->
+                    <td>{{user.id}}</td>
+                    <td>{{user.nombre}}</td>
+                    <td>{{user.apellido}}</td>
+                    <td>{{user.email}}</td>
+                    <td><img src="{{user.imagen}}" width="60px"></td>
+                    <td><button (click)="borrar(user)" class="btn btn-danger">Delete</button>
+                        <button (click)="actualizar(user)" class="btn btn-warning" style="margin-left: 10px">Update</button>
+                        <button (click)="detalles(user)" class="btn btn-info" style="margin-left: 10px">Details</button>
+                        <button (click)="anadirimagen(user)" class="btn btn-success" style="margin-left: 10px">Imagen</button>
+                    </td>     
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

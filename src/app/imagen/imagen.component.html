@@ -1,0 +1,13 @@
+<h3>Details Employee</h3>
+<div style="width: 400px;">
+
+    <div class="form-group">
+      <label for="name">Imagen: &nbsp; </label>
+      <img src="{{User.imagen}}" width="60px">
+      <input type="file" accept=".png, .jpg" (change)="cambiarURL($event)">
+    </div>
+
+</div>
+
+
+<button class="btn btn-success" routerLink="../../">Añadir/Actualizar</button> <!-- Llamo a la funcion -->
