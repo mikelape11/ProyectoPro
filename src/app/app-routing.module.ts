@@ -5,6 +5,7 @@ import { AnadirComponent } from './anadir/anadir.component';
 import { ActualizarComponent } from './actualizar/actualizar.component';
 import { DetallesComponent } from './detalles/detalles.component';
 import { ImagenComponent } from './imagen/imagen.component';
+import { ErrorComponent } from './error/error.component';
 
 //rutas
 const routes: Routes = [
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: 'update/:id', component: ActualizarComponent },
   { path: 'details/:id', component: DetallesComponent },
   { path: 'imagen/:id', component: ImagenComponent },
+  { path: '**', component: ErrorComponent}
 ];
 
 @NgModule({

@@ -1,22 +1,36 @@
 <h3>Create Employee</h3>
 <div style="width: 400px;">
+  <div [formGroup]="myForm"><!-- lo junta en el mismo grupo para las validaciones -->
 
     <div class="form-group">
       <label for="name">Nombre</label>
-      <input type="text" class="form-control" id="nombre" required [(ngModel)]="user.nombre" name="nombre">
+      <input type="text" class="form-control" id="nombre" required [(ngModel)]="user.nombre" name="nombre" formControlName="nombre"><!-- formcontrolname: para hacer referencias a las validaciones-->
+      <span class="text-danger" *ngIf="myForm.controls['nombre'].hasError('required') && (myForm.controls['nombre'].dirty || myForm.controls['nombre'].touched)">Este campo es obligatorio </span>
+      <span class="text-danger" *ngIf="myForm.controls['nombre'].hasError('minlength') && (myForm.controls['nombre'].dirty || myForm.controls['nombre'].touched)">Este campo tiene que ser mas largo que 5 caracteres </span>
+
     </div>
 
     <div class="form-group">
       <label for="name">Apellido</label>
-      <input type="text" class="form-control" id="apellido" required [(ngModel)]="user.apellido" name="apellido">
+      <input type="text" class="form-control" id="apellido" required [(ngModel)]="user.apellido" name="apellido" formControlName="apellido">
+      <span class="text-danger" *ngIf="myForm.controls['apellido'].hasError('required') && (myForm.controls['apellido'].dirty || myForm.controls['apellido'].touched)">Este campo es obligatorio </span>
     </div>
 
     <div class="form-group">
       <label for="name">Email</label>
-      <input type="text" class="form-control" id="email" required [(ngModel)]="user.email" name="email">
+      <input type="text" class="form-control" id="email" required [(ngModel)]="user.email" name="email" formControlName="email" ng-model="email">
+      <span class="text-danger" *ngIf="myForm.controls['email'].hasError('required') && (myForm.controls['email'].dirty || myForm.controls['email'].touched)">Este campo es obligatorio </span>
     </div>
 
+    <div class="form-group">
+      <label for="name">Email2</label>
+      <input type="text" class="form-control" id="email2" required [(ngModel)]="emailver" name="email2" formControlName="email2" ng-model="email2" ng-pattern="email">
+      <span class="text-danger" *ngIf="myForm.controls['email2'].hasError('required') && (myForm.controls['email2'].touched)">Este campo es obligatorio </span>
+      <span ng-show="myForm.controls.email2.$error.pattern">Repeat Email should have the same value with email!</span>
+    </div>
+    
 
+  </div>
 </div>
 
 <button class="btn btn-success" (click)="add()">Add</button> <!-- Llamo a la funcion -->
